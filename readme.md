@@ -1,99 +1,88 @@
-# Maze Solver with Traditional and MDP-Based Algorithms
+# Maze Solving Algorithms - AI Assignment (CS7IS2)
 
-## Introduction
-This project implements various maze-solving algorithms to evaluate their efficiency, path optimality, and computational resource usage. The implemented algorithms include:
-- **Depth-First Search (DFS)**
-- **Breadth-First Search (BFS)**
-- **A* Search (A-star)**
-- **Markov Decision Process (MDP) Policy Iteration**
-- **Markov Decision Process (MDP) Value Iteration**
+This project is part of the **CS7IS2 Artificial Intelligence** course and involves implementing and evaluating various **maze-solving algorithms** including traditional search methods and **Markov Decision Process (MDP)-based approaches**.
 
-Additionally, the project includes a **maze generator** that produces mazes of varying sizes and difficulties using different algorithms like **DFS, Prim's Algorithm, and Aldous-Broder Algorithm**.
+## 📌 Table of Contents
+- [Introduction](#introduction)
+- [Implemented Algorithms](#implemented-algorithms)
+- [Setup Instructions](#setup-instructions)
+- [How to Run the Code](#how-to-run-the-code)
+- [Contact](#contact)
 
 ---
 
-## Installation & Setup
+## 📖 Introduction
+This project explores different maze-solving techniques, focusing on:
+- **Traditional Search Algorithms**: Depth-First Search (DFS), Breadth-First Search (BFS), and A*.
+- **MDP-Based Methods**: Policy Iteration and Value Iteration.
+
+The goal is to analyze and compare their efficiency in terms of **runtime, memory usage, and path length**.
+
+## ⚙️ Implemented Algorithms
+### 1️⃣ **Traditional Search Algorithms**
+- **Depth-First Search (DFS)**: Explores paths deeply before backtracking.
+- **Breadth-First Search (BFS)**: Guarantees the shortest path using level-wise traversal.
+- **A* Search**: Uses a heuristic (Manhattan distance) to efficiently find an optimal path.
+
+### 2️⃣ **Markov Decision Process (MDP) Methods**
+- **MDP Policy Iteration**: Iteratively improves policies based on rewards and transition probabilities.
+- **MDP Value Iteration**: Uses Bellman equations to find the optimal value function.
+
+
+## 🔧 Setup Instructions
 ### Prerequisites
 Ensure you have **Python 3.x** installed along with the following dependencies:
+```sh
+python -m venv maze_env
+source maze_env/bin/activate  # Mac/Linux
+maze_env\Scripts\activate     # Windows
+```
 
 ```sh
 pip install numpy matplotlib
 ```
 
+---
 
-## How to Run
-To execute the maze solver, run the **driver.py** script and provide the necessary inputs when prompted.
-
+## ▶️ How to Run the Code
+Run the main **driver script**:
 ```sh
 python driver.py
 ```
+### Interactive Inputs:
+1. **Maze Dimension** (e.g., `20` for a 20×20 maze)
+2. **Maze Difficulty** (between `1` to `10`)
+3. **Algorithm Selection** (comma-separated list of DFS, BFS, A*, MDP_POLICY, MDP_VALUE)
+4. **MDP Parameters** (for Policy and Value Iteration methods)
 
-### Example Execution
-```
+Example Run:
+```sh
 Enter maze dimension (number of cells per side): 20
 Enter maze difficulty (1-10): 10
-Using Aldous-Broder algorithm with complexity = 40
-
-Select algorithms to run (separate by commas):
-Options: DFS, BFS, A*, MDP_POLICY, MDP_VALUE
-Enter choices: DFS, BFS, A*, MDP_POLICY, MDP_VALUE
+Select algorithms to run (separate by commas): DFS, BFS, A*, MDP_POLICY, MDP_VALUE
 Enter discount factor for MDP Policy Iteration (e.g., 0.9): 0.9
 Enter convergence threshold for MDP Policy Iteration (e.g., 0.001): 0.001
 Enter discount factor for MDP Value Iteration (e.g., 0.9): 0.9
 Enter convergence threshold for MDP Value Iteration (e.g., 0.001): 0.001
 ```
 
-### Outputs
-After execution, results will be saved in the **results/** directory:
-- **Performance Data**: `algorithm_performance.csv`
-- **Maze Solutions**: `[Algorithm]_solution.png`
-- **Performance Comparison Graph**: `performance_comparison.png`
+Results will be saved in a **timestamped folder inside the `results/` directory**:
+```
+📂 results_20250302_094347
+   ├── algorithm_performance.csv   # CSV file with runtime, path length, memory usage
+   ├── performance_comparison.png  # Graph comparing algorithms
+   ├── DFS_solution.png            # Visual representation of DFS solution
+   ├── BFS_solution.png            # Visual representation of BFS solution
+   ├── A*_solution.png             # Visual representation of A* solution
+   ├── MDP_POLICY_solution.png     # MDP Policy Iteration path
+   ├── MDP_VALUE_solution.png      # MDP Value Iteration path
+```
+
+## 📌 Contact
+For queries or issues, reach out to **Abhishek Zade** at:
+📧 **zabhidoc@gmail.com** or **zadea@tcd.ie**
 
 ---
 
-## Algorithm Descriptions
-
-### 1. Depth-First Search (DFS)
-- Explores as far as possible along each branch before backtracking.
-- Uses a **stack-based approach**.
-- May not always return the shortest path but is efficient in memory.
-
-### 2. Breadth-First Search (BFS)
-- Explores all nodes at the present depth before moving deeper.
-- Guarantees the **shortest path**.
-- Uses a **queue-based approach**, making it more memory-intensive.
-
-### 3. A* Search
-- Uses a heuristic function to estimate the cost from the current node to the goal.
-- Balances cost-to-come and estimated cost-to-go (`f(n) = g(n) + h(n)`).
-- Typically provides optimal and efficient solutions.
-
-### 4. MDP Policy Iteration
-- Models the maze as a **Markov Decision Process** (MDP).
-- Iteratively evaluates and improves the policy until convergence.
-- Computes the **expected long-term reward** for each state.
-
-### 5. MDP Value Iteration
-- Uses **Bellman updates** to compute optimal state values.
-- Selects actions that maximize discounted future rewards.
-- More computationally expensive than traditional search algorithms.
-
----
-
-## Performance Comparison
-A bar graph comparing algorithm performance (runtime, path length, and memory usage) is generated and saved as **performance_comparison.png**.
-
-### General Observations:
-- **BFS and A***: Fast and provide shortest path guarantees.
-- **DFS**: Efficient in memory but may generate longer paths.
-- **MDP-Based Methods**: Optimal for decision-making but expensive in terms of computational resources.
-
-
-## License
-This project is for educational purposes and free for use.
-
----
-
-## Contact
-For queries or issues, reach out to **Abhishek Zade**.
+🚀 **Happy Coding & Maze Solving!** 🏆
 
